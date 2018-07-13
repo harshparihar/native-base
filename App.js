@@ -1,7 +1,30 @@
 import React from "react";
 import Expo from "expo";
 import { Image } from "react-native";
-import { Container, Header, Content, Card, CardItem, Body, View, Text, Button, Icon, DatePicker } from "native-base";
+import { Container, Header, Content, DeckSwiper, Card, CardItem, Body, View, Text, Button, Icon, Thumbnail, Left } from "native-base";
+
+const cards = [
+  {
+    text: 'Card One',
+    name: 'One',
+    image: require('./src/assets/images/n1.jpg'),
+  },
+  {
+    text: 'Card Two',
+    name: 'Two',
+    image: require('./src/assets/images/n2.jpg'),
+  },
+  {
+    text: 'Card Three',
+    name: 'Three',
+    image: require('./src/assets/images/n3.jpg'),
+  },
+  {
+    text: 'Card Four',
+    name: 'Four',
+    image: require('./src/assets/images/n4.jpg'),
+  }
+];
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,25 +53,31 @@ export default class App extends React.Component {
     return (
       <Container>
         <Header />
-        <Content>
-          <DatePicker
-            defaultDate={new Date(2018, 4, 4)}
-            minimumDate={new Date(2018, 1, 1)}
-            maximumDate={new Date(2018, 12, 31)}
-            locale={"en"}
-            timeZoneOffsetInMinutes={undefined}
-            modalTransparent={false}
-            animationType={"fade"}
-            androidMode={"default"}
-            placeHolderText="Select date"
-            textStyle={{ color: "green" }}
-            placeHolderTextStyle={{ color: "#d3d3d3" }}
-            onDateChange={this.setDate}
-            />
-            <Text>
-              Date: {this.state.chosenDate.toString().substr(4, 12)}
-            </Text>
-        </Content>
+        <View>
+          <DeckSwiper
+            dataSource={cards}
+            renderItem={item =>
+              <Card style={{ elevation: 3 }}>
+                <CardItem>
+                  <Left>
+                    <Thumbnail source={item.image} />
+                    <Body>
+                      <Text>{item.text}</Text>
+                      <Text note>NativeBase</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                <CardItem cardBody>
+                  <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                </CardItem>
+                <CardItem>
+                  <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                  <Text>{item.name}</Text>
+                </CardItem>
+              </Card>
+            }
+          />
+        </View>
       </Container>
     );
   }
