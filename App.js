@@ -1,6 +1,6 @@
 import React from "react";
 import Expo from "expo";
-import { Container, Header, Content, Badge, View, Text, Icon } from "native-base";
+import { Container, Header, Content, Button, View, Text, Icon } from "native-base";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,33 +22,16 @@ export default class App extends React.Component {
       return <Expo.AppLoading />;
     }
     return (
-     <Container>
+      <Container>
         <Header />
         <Content>
-          <Badge>
-            <Text>2</Text>
-          </Badge>
-          <Badge primary>
-            <Text>2</Text>
-          </Badge>
-          <Badge success>
-            <Text>2</Text>
-          </Badge>
-          <Badge info>
-            <Text>2</Text>
-          </Badge>
-          <Badge warning>
-            <Text>2</Text>
-          </Badge>
-          <Badge danger>
-            <Text>2</Text>
-          </Badge>
-          <Badge primary>
-            <Icon name="star" style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}/>
-          </Badge>
-          <Badge style={{ backgroundColor: 'black' }}>
-            <Text style={{ color: 'white' }}>1866</Text>
-          </Badge>
+          <Button light><Text> Light </Text></Button>
+          <Button primary><Text> Primary </Text></Button>
+          <Button success><Text> Success </Text></Button>
+          <Button info><Text> Info </Text></Button>
+          <Button warning><Text> Warning </Text></Button>
+          <Button danger><Text> Danger </Text></Button>
+          <Button dark><Text> Dark </Text></Button>
         </Content>
       </Container>
     );
