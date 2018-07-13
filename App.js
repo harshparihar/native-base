@@ -1,12 +1,17 @@
 import React from "react";
 import Expo from "expo";
 import { Image } from "react-native";
-import { Container, Header, Content, Card, CardItem, Body, View, Text, Button, Icon, ListItem, CheckBox } from "native-base";
+import { Container, Header, Content, Card, CardItem, Body, View, Text, Button, Icon, DatePicker } from "native-base";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true };
+    this.state = { loading: true, chosenDate: new Date() };
+    this.setDate = this.setDate.bind(this);
+  }
+
+  setDate(newDate) {
+    this.setState({ chosenDate: newDate });
   }
 
   async componentWillMount() {
@@ -26,24 +31,23 @@ export default class App extends React.Component {
       <Container>
         <Header />
         <Content>
-          <ListItem>
-            <CheckBox checked={true} />
-            <Body>
-              <Text>Daily Stand Up</Text>
-            </Body>
-          </ListItem>
-          <ListItem>
-            <CheckBox checked={false} />
-            <Body>
-              <Text>Discussion with Client</Text>
-            </Body>
-          </ListItem>
-          <ListItem>
-            <CheckBox checked={false} color="green"/>
-            <Body>
-              <Text>Finish list Screen</Text>
-            </Body>
-          </ListItem>
+          <DatePicker
+            defaultDate={new Date(2018, 4, 4)}
+            minimumDate={new Date(2018, 1, 1)}
+            maximumDate={new Date(2018, 12, 31)}
+            locale={"en"}
+            timeZoneOffsetInMinutes={undefined}
+            modalTransparent={false}
+            animationType={"fade"}
+            androidMode={"default"}
+            placeHolderText="Select date"
+            textStyle={{ color: "green" }}
+            placeHolderTextStyle={{ color: "#d3d3d3" }}
+            onDateChange={this.setDate}
+            />
+            <Text>
+              Date: {this.state.chosenDate.toString().substr(4, 12)}
+            </Text>
         </Content>
       </Container>
     );
