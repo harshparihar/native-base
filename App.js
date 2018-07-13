@@ -1,9 +1,12 @@
 import React from "react";
-import { StatusBar } from "react-native";
 import Expo from "expo";
-// import { Container, Button, text, ListItem, Text } from "native-base";
-import { Container, Header, Title, ListItem, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Header, Content, Accordion } from "native-base";
 
+const dataArray = [
+  { title: "First Element", content: "You are check first element" },
+  { title: "Second Element", content: "You are checking second element" },
+  { title: "Third Element", content: "You are checking third element" }
+];
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,33 +29,10 @@ export default class App extends React.Component {
     }
     return (
       <Container>
-
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-
-        <Content>
-          <Text>
-            This is Content Section
-          </Text>
+        <Header />
+        <Content padder>
+          <Accordion dataArray={dataArray} expanded={0}/>
         </Content>
-
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-
       </Container>
     );
   }
