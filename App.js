@@ -1,14 +1,14 @@
 import React from "react";
 import Expo from "expo";
 import { Image } from "react-native";
-import { Container, Header, Content, DeckSwiper, Card, CardItem, Body, View, Text, Button, Icon, Fab } from "native-base";
+import { Container, Header, Content, DeckSwiper, Card, CardItem, Body, View, Text, Button, Icon, Footer, FooterTab } from "native-base";
 
 
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true, active: 'true' };
+    this.state = { loading: true };
   }
 
   async componentWillMount() {
@@ -27,26 +27,23 @@ export default class App extends React.Component {
     return (
       <Container>
         <Header />
-        <View style={{ flex: 1 }}>
-          <Fab
-            active={this.state.active}
-            direction="up"
-            containerStyle={{ }}
-            style={{ backgroundColor: '#5067FF' }}
-            position="bottomRight"
-            onPress={() => this.setState({ active: !this.state.active })}>
-            <Icon name="share" />
-            <Button style={{ backgroundColor: '#34A34F' }}>
-              <Icon name="logo-whatsapp" />
+        <Content />
+        <Footer>
+          <FooterTab>
+            <Button>
+              <Text>Apps</Text>
             </Button>
-            <Button style={{ backgroundColor: '#3B5998' }}>
-              <Icon name="logo-facebook" />
+            <Button>
+              <Text>Camera</Text>
             </Button>
-            <Button disabled style={{ backgroundColor: '#DD5144' }}>
-              <Icon name="mail" />
+            <Button active>
+              <Text>Navigate</Text>
             </Button>
-          </Fab>
-        </View>
+            <Button>
+              <Text>Contact</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }
