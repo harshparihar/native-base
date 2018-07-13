@@ -1,6 +1,6 @@
 import React from "react";
 import Expo from "expo";
-import { Container, Header, Content, Accordion } from "native-base";
+import { Container, Header, Content, Accordion, View, Text, Icon } from "native-base";
 
 const dataArray = [
   { title: "First Element", content: "You are check first element" },
@@ -23,6 +23,26 @@ export default class App extends React.Component {
     this.setState({ loading: false });
   }
 
+  _renderHeader(title, expanded) {
+    return (
+      <View style={{ flexDirection: "row", padding: 10, justifyContent: "space-between", alignItems: "center", backgroundColor: "#A9DAD6" }}>
+        <Text style={{ fontWeight: "600" }}>
+          {" "}{title}
+        </Text>
+        {expanded
+          ? <Icon style={{ fontSize: 18 }} name="remove-circle" />
+          : <Icon style={{ fontSize: 18 }} name="add-circle" />}
+      </View>
+    );
+  }
+  _renderContent(content) {
+    return (
+      <Text style={{ backgroundColor: "#e3f1f1", padding: 10, fontStyle: "italic" }}>
+        {content}
+      </Text>
+    );
+  }
+
   render() {
     if (this.state.loading) {
       return <Expo.AppLoading />;
@@ -31,7 +51,11 @@ export default class App extends React.Component {
       <Container>
         <Header />
         <Content padder>
-          <Accordion dataArray={dataArray} expanded={0}/>
+          <Accordion
+            dataArray={dataArray}
+            renderHeader={this._renderHeader}
+            renderContent={this._renderContent}
+          />
         </Content>
       </Container>
     );
