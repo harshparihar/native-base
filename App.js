@@ -1,7 +1,8 @@
 import React from "react";
 import Expo from "expo";
 import { Image } from "react-native";
-import { Container, Header, Content, DeckSwiper, Card, CardItem, Body, View, Text, Button, Icon, Footer, FooterTab } from "native-base";
+import { Container, Header } from "native-base";
+import { Col, Row, Grid } from 'react-native-easy-grid';
 
 
 
@@ -27,23 +28,10 @@ export default class App extends React.Component {
     return (
       <Container>
         <Header />
-        <Content />
-        <Footer>
-          <FooterTab>
-            <Button>
-              <Text>Apps</Text>
-            </Button>
-            <Button>
-              <Text>Camera</Text>
-            </Button>
-            <Button active>
-              <Text>Navigate</Text>
-            </Button>
-            <Button>
-              <Text>Contact</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
+          <Grid>
+            <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
+            <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
+          </Grid>
       </Container>
     );
   }
