@@ -1,12 +1,6 @@
 import React from "react";
 import Expo from "expo";
-import { Container, Header, Content, Accordion, View, Text, Icon } from "native-base";
-
-const dataArray = [
-  { title: "First Element", content: "You are check first element" },
-  { title: "Second Element", content: "You are checking second element" },
-  { title: "Third Element", content: "You are checking third element" }
-];
+import { Container, Header, Content, Badge, View, Text, Icon } from "native-base";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -23,39 +17,38 @@ export default class App extends React.Component {
     this.setState({ loading: false });
   }
 
-  _renderHeader(title, expanded) {
-    return (
-      <View style={{ flexDirection: "row", padding: 10, justifyContent: "space-between", alignItems: "center", backgroundColor: "#A9DAD6" }}>
-        <Text style={{ fontWeight: "600" }}>
-          {" "}{title}
-        </Text>
-        {expanded
-          ? <Icon style={{ fontSize: 18 }} name="remove-circle" />
-          : <Icon style={{ fontSize: 18 }} name="add-circle" />}
-      </View>
-    );
-  }
-  _renderContent(content) {
-    return (
-      <Text style={{ backgroundColor: "#e3f1f1", padding: 10, fontStyle: "italic" }}>
-        {content}
-      </Text>
-    );
-  }
-
   render() {
     if (this.state.loading) {
       return <Expo.AppLoading />;
     }
     return (
-      <Container>
+     <Container>
         <Header />
-        <Content padder>
-          <Accordion
-            dataArray={dataArray}
-            renderHeader={this._renderHeader}
-            renderContent={this._renderContent}
-          />
+        <Content>
+          <Badge>
+            <Text>2</Text>
+          </Badge>
+          <Badge primary>
+            <Text>2</Text>
+          </Badge>
+          <Badge success>
+            <Text>2</Text>
+          </Badge>
+          <Badge info>
+            <Text>2</Text>
+          </Badge>
+          <Badge warning>
+            <Text>2</Text>
+          </Badge>
+          <Badge danger>
+            <Text>2</Text>
+          </Badge>
+          <Badge primary>
+            <Icon name="star" style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}/>
+          </Badge>
+          <Badge style={{ backgroundColor: 'black' }}>
+            <Text style={{ color: 'white' }}>1866</Text>
+          </Badge>
         </Content>
       </Container>
     );
