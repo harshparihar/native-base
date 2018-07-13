@@ -1,6 +1,6 @@
 import React from "react";
 import Expo from "expo";
-import { Container, Header, Content, Card, CardItem, Body, View, Text, Icon } from "native-base";
+import { Container, Header, Content, Card, CardItem, Body, View, Text, Icon, Right } from "native-base";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,22 +24,16 @@ export default class App extends React.Component {
     return (
       <Container>
         <Header />
-        <Content padder>
+        <Content>
           <Card>
-            <CardItem header button onPress={() => alert("This is Card Header")}>
-              <Text>NativeBase</Text>
-            </CardItem>
-            <CardItem button onPress={() => alert("This is Card Body")}>
-              <Body>
-                <Text>
-                  Click on any carditem
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem footer button onPress={() => alert("This is Card Footer")}>
-              <Text>GeekyAnts</Text>
-            </CardItem>
-          </Card>
+            <CardItem>
+              <Icon active name="logo-googleplus" />
+              <Text>Google Plus</Text>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+             </CardItem>
+           </Card>
         </Content>
       </Container>
     );
