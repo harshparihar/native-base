@@ -1,6 +1,6 @@
 import React from "react";
 import Expo from "expo";
-import { Container, Header, Content, Button, View, Text, Icon } from "native-base";
+import { Container, Header, Content, Card, CardItem, Body, View, Text, Icon } from "native-base";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,14 +24,28 @@ export default class App extends React.Component {
     return (
       <Container>
         <Header />
-        <Content>
-          <Button light><Text> Light </Text></Button>
-          <Button primary><Text> Primary </Text></Button>
-          <Button success><Text> Success </Text></Button>
-          <Button info><Text> Info </Text></Button>
-          <Button warning><Text> Warning </Text></Button>
-          <Button danger><Text> Danger </Text></Button>
-          <Button dark><Text> Dark </Text></Button>
+        <Content padder>
+          <Card>
+            <CardItem header bordered>
+              <Text>NativeBase</Text>
+            </CardItem>
+
+            <CardItem bordered>
+              <Body>
+                <Text>
+                  NativeBase is a free and open source framework that enable
+                  developers to build
+                  high-quality mobile apps using React Native iOS and Android
+                  apps
+                  with a fusion of ES6.
+                </Text>
+              </Body>
+            </CardItem>
+
+            <CardItem footer bordered>
+              <Text>GeekyAnts</Text>
+            </CardItem>
+          </Card>
         </Content>
       </Container>
     );
