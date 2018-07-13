@@ -26,23 +26,17 @@ export default class App extends React.Component {
         <Header />
         <Content padder>
           <Card>
-            <CardItem header bordered>
+            <CardItem header button onPress={() => alert("This is Card Header")}>
               <Text>NativeBase</Text>
             </CardItem>
-
-            <CardItem bordered>
+            <CardItem button onPress={() => alert("This is Card Body")}>
               <Body>
                 <Text>
-                  NativeBase is a free and open source framework that enable
-                  developers to build
-                  high-quality mobile apps using React Native iOS and Android
-                  apps
-                  with a fusion of ES6.
+                  Click on any carditem
                 </Text>
               </Body>
             </CardItem>
-
-            <CardItem footer bordered>
+            <CardItem footer button onPress={() => alert("This is Card Footer")}>
               <Text>GeekyAnts</Text>
             </CardItem>
           </Card>
