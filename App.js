@@ -1,7 +1,9 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { Container, Button, text, ListItem, Text } from "native-base";
 import Expo from "expo";
+// import { Container, Button, text, ListItem, Text } from "native-base";
+import { Container, Header, Title, ListItem, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,13 +26,33 @@ export default class App extends React.Component {
     }
     return (
       <Container>
-        <StatusBar hidden={true} />
 
-        <Button>
-          <Text>Say Hello</Text>
-        </Button>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right />
+        </Header>
 
-        <ListItem />
+        <Content>
+          <Text>
+            This is Content Section
+          </Text>
+        </Content>
+
+        <Footer>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
+
       </Container>
     );
   }
